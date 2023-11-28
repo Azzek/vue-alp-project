@@ -1,16 +1,38 @@
 <template>
-
-    <navbar 
-        :pages="pages"
-        :active-page="activePage"
-        :nav-link-click="(index) => activePage = index"
-    ></navbar>
-
+    <div class="header-background mask bg-image">
+    </div>
+        <navbar
+            :pages="pages"
+            :active-page="activePage"
+            :nav-link-click="(index) => activePage = index"
+        ></navbar>
+       
+    
     <page-viewer
             :page="pages[activePage]">
     </page-viewer>
 </template>
+<style>
+    .header-background {
+        height: 50vh;
+        width: 100vw;
+        background-image: url('./assets/background.webp');
+        background-size: cover;
+        background-position: center center;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        filter: brightness(70%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: -10;
+    }
+    body {
+        padding-top: 50vh;
+    }
 
+</style>
 <script>
 import PageViewer from './components/PageViewer.vue';
 import Navbar from './components/Navbar.vue';

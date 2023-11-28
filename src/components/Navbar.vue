@@ -1,6 +1,7 @@
+<!--:class="[`bg-${navTheme}`, `navbar-${navTheme}`]"  -->
 <template>
-    <nav class="navbar navbar-expand"    
-        :class="[`bg-${navTheme}`, `navbar-${navTheme}`]"
+    <nav class="navbar navbar-expand"  
+    
         >
         <div class="container-fluid">
             <a><img  src="../assets/logo.png" alt="" ></a>
@@ -36,11 +37,18 @@
 <style>
     .navbar img {
         width: 60px;
+        background-color: transparent;
+    }
+    .navbar {
+        backdrop-filter: blur(7px);
+        border-radius: 15px;
     }
     .dropdown-menu {
         left: -59px;
     }
-    
+    .nav-item a {
+        font-weight: 600;
+    }
     @media (max-width: 430px) { 
         .navbar img {
             width: 45px;
