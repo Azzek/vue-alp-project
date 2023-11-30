@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid header-background">
-        <h1>Welcome to Automotive Logistics {{ page.pageTitle }}</h1>
+        <h1>Welcome to ALP {{ page.pageTitle }}</h1>
     </div>
 </template>
 

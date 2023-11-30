@@ -57,7 +57,7 @@ export default {
 
             this.pages = data;
             return data;
-        }
+        },
     }
 }
 </script>

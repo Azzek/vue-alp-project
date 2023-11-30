@@ -72,12 +72,27 @@ export default {
         components: {
         NavbarLink
         },
+        created() {
+            this.getThemeSetting()
+        },
         props: ['pages', 'activePage','navLinkClick'],
         data() {
             return{
                 navTheme:'dark'
             }
-        }
+        },
+        methods: {
+            storeThemeSetting() {
+            localStorage.setItem('theme', this.theme);
+            },
+            getThemeSetting() {
+                let theme = localStorage.setItem('theme', this.theme);
+                if (theme) {
+                    this.theme = theme;
+                }
+            }
+        },
+        
 }
 
 </script>
