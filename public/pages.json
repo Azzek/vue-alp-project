@@ -1,0 +1,28 @@
+[
+    {   
+        "pageName": "Home",
+        "pageBtn": "Home",
+        "pageTitle":"Home page",
+        "pageContent":"Automotive Logistics Polska Sp. z o.o. powstała w październiku 2003 roku w wyniku doświadczeń i sukcesów udziałowców na polu usług spedycyjnych, transportowych, zarządzania logistycznego, jak i rachunkowości, marketingu usług i produktów szybko rotujących, czy wreszcie zarządzania administracyjnego i zasobami ludzkimi. Podstawą sukcesu firmy w transporcie i logistyce jest też fakt, iż wszystkie osoby zarządzające firmą posiadają dyplomy ukończenia wyższych studiów kierunkowych, udoskonalone licznymi kursami tematycznymi, w tym Master Business of Administration. Podstawowym dokumentem cechującym Zarząd Spółki jest Certyfikat Kompetencji Zawodowych Przewoźników w Transporcie Międzynarodowym.",
+
+        "pageDescription":"jako firma zaczynaliśmy od świadczenia usług wyłącznie spedycyjnych, poprzez stopniowy zakup pierwszych własnych środków transportu a skończywszy obecnie na posiadaniu własnej bazy samochodów z zakresu 1,5 - 24 t ładowności. Obecnie podstawowym kierunkiem działań jest stworzenie struktury firmy zawierającej skonsolidowaną grupę przewoźników mogącą sprostać terminowością, jakością usług i zakresem taboru najbardziej wymagającym klientom korporacyjnym oraz logistic provider'om."
+    },
+    {   
+        "pageName":"About",
+        "pageBtn":"About",
+        "pageTitle": "About page",
+        "pageContent":"Welcome to About page UwU"
+    },
+    {   
+        "pageName":"Contact",
+        "pageBtn":"Contact",
+        "pageTitle":"Contact page",   
+        "pageContent":"tel: +48 32 / 214 90 29 fax: +48 32 / 214 90 30 UwU"
+    },
+    {   
+        "pageName":"Offer",
+        "pageBtn":"Offer",
+        "pageTitle":"Offer",   
+        "pageContent":"This is Offert page UwU"
+    }
+]

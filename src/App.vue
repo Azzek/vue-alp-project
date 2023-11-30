@@ -1,72 +1,63 @@
 <template>
-    <div class="header-background mask bg-image">
-    </div>
-        <navbar
-            :pages="pages"
-            :active-page="activePage"
-            :nav-link-click="(index) => activePage = index"
-        ></navbar>
-       
+
+    <navbar
+        v-if="pages.length > 0"
+        :pages="pages"
+        :active-page="activePage"
+        :nav-link-click="(index) => activePage = index"
+    ></navbar>
+
+    <HeaderBackground
+        v-if="pages.length > 0"
+        :page="pages[activePage]">
+    >
     
-    <page-viewer
-            :page="pages[activePage]">
+    </HeaderBackground>
+  <!--  <page-viewer
+      :page="pages[activePage]">
     </page-viewer>
+    -->
+    <HomePage
+        v-if="pages.length > 0 && pages[activePage].pageName == 'Home'"
+        :page="pages[activePage]"
+    >
+    </HomePage>
+   
 </template>
 <style>
-    .header-background {
-        height: 50vh;
-        width: 100vw;
-        background-image: url('./assets/background.webp');
-        background-size: cover;
-        background-position: center center;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-        filter: brightness(70%);
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: -10;
-    }
-    body {
-        padding-top: 50vh;
-    }
-
+.displayNone {
+    display: none;
+}
 </style>
 <script>
 import PageViewer from './components/PageViewer.vue';
 import Navbar from './components/Navbar.vue';
+import HeaderBackground from './components/HeaderBackground.vue';
+import HomePage from './components/HomePage.vue';
 export default {
     components: {
         Navbar,
         PageViewer,
+        HeaderBackground,
+        HomePage,
+    },
+    created() {
+        this.getPages()
     },
     data() {
         return {
             activePage:0,
-            pages: [
-            {
-                pageBtn:'Home',
-                pageTitle:'Home page',
-                PageContent:"Automotive Logistics Polska Sp. z o.o. was founded in October 2003 as a result of the experience and successes of stakeholders in the field of freight forwarding services, transportation, logistics management, accounting, marketing, administration and human resources. The company's success in the field of transport and logistics is also due to the fact that all the managers are university graduates in the field of transport. The staff are constantly improving their skills through participation in the thematic courses, among others Master Business of Administration. The company manegement operates on the basis of The Certificate of Professional Competence in International Transport.Initially we started with the provision of freight forwarding services, with time we bought our own cars, and now we have our own fleet with a capacity range of 1,5-24t. Currently the basic aim of the company is to create a group of carries that meet the most demanding quality requirements of corporate customers and logistic providers with the quality of their service, timeliness of delivery and the choice of the fleet. UwUUwU"
-            },
-            {
-                pageBtn:'About',
-                pageTitle:'About page',
-                PageContent:'Welcome to About page UwU'
-            },
-            {
-                pageBtn:'Contact',
-                pageTitle:'Contact page',   
-                PageContent:"tel: +48 32 / 214 90 29 fax: +48 32 / 214 90 30 UwU"
-            },
-            {
-                pageBtn:'Offer',
-                pageTitle:'Offer',   
-                PageContent:"This is Offert page UwU"
-            }
-        ]
+            pages:[]
         };
     },
+    methods: {
+        async getPages() {
+            let res = await fetch ('pages.json')
+            let data = await res.json()
+
+            this.pages = data;
+            return data;
+        }
+    }
 }
 </script>

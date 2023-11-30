@@ -1,20 +1,20 @@
-<!--:class="[`bg-${navTheme}`, `navbar-${navTheme}`]"  -->
+<!-- -->
 <template>
     <nav class="navbar navbar-expand"  
-    
+    :class="[`bg-${navTheme}`, `navbar-${navTheme}`]" 
         >
         <div class="container-fluid">
-            <a><img  src="../assets/logo.png" alt="" ></a>
+            <a class="navbar-brand" href="#">ALP</a>
             <ul class="navbar-nav">
                
                 <li v-for="(page, index) in pages" class="nav-item" key="index">
-                    <a
-                        href="#"
-                        class="nav-link"
+                    <navbar-link
+                        :page="pages[index]"
+                        :isActive="activePage == index"
                         @click="navLinkClick(index)"
-                        :class="{active: index == activePage}"
-                        :title="`This link goes to the ${page.PageTitle}`"
-                    >{{ page.pageBtn }}</a>
+                    >
+
+                    </navbar-link>
                 </li>
                 <li class="nav-item dropdown" >
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -26,8 +26,9 @@
                     <li><a class="dropdown-item" href="https://nbp-pl.translate.goog/statystyka-i-sprawozdawczosc/kursy/tabela-a/?_x_tr_sl=pl&_x_tr_tl=en&_x_tr_hl=pl">Rate of exchange</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><button
-                        @click="navTheme == 'light' ? navTheme = 'dark' : navTheme = 'light' "
-                        class="btn">{{ `${navTheme == 'light' ? 'dark' : 'light'} Mode` }}</button></li>
+                       @click="navTheme == 'light' ? navTheme = 'dark' : navTheme = 'light' "
+                        class="btn"
+                        >{{ `${navTheme == 'light' ? 'dark' : 'light'} Mode` }}</button></li>
                     </ul>
                     </li>
             </ul>
@@ -37,12 +38,20 @@
 <style>
     .navbar img {
         width: 60px;
-        background-color: transparent;
+    }
+    .navbar-brand {
+        margin-left: 15px;
+        font-weight: 700;
+        font-size: 22px !important; 
     }
     .navbar {
         backdrop-filter: blur(7px);
-        border-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        z-index: 3;
     }
+
+    
     .dropdown-menu {
         left: -59px;
     }
@@ -57,7 +66,12 @@
     
 </style>
 <script>
+import NavbarLink from './NavbarLink.vue';
+
 export default {
+        components: {
+        NavbarLink
+        },
         props: ['pages', 'activePage','navLinkClick'],
         data() {
             return{
