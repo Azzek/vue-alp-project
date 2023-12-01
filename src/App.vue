@@ -17,11 +17,16 @@
       :page="pages[activePage]">
     </page-viewer>
     -->
-    <HomePage
+ <!--   <HomePage
         v-if="pages.length > 0 && pages[activePage].pageName == 'Home'"
         :page="pages[activePage]"
     >
-    </HomePage>
+    </HomePage> -->
+    <CreatePage
+    :pageCreated = pageCreated
+    >
+        
+    </CreatePage>
    
 </template>
 <style>
@@ -34,12 +39,14 @@ import PageViewer from './components/PageViewer.vue';
 import Navbar from './components/Navbar.vue';
 import HeaderBackground from './components/HeaderBackground.vue';
 import HomePage from './components/HomePage.vue';
+import CreatePage from './components/CreatePage.vue';
 export default {
     components: {
         Navbar,
         PageViewer,
         HeaderBackground,
         HomePage,
+        CreatePage
     },
     created() {
         this.getPages()
@@ -58,6 +65,9 @@ export default {
             this.pages = data;
             return data;
         },
+        pageCreated(pageObj) {
+            console.log(pageObj);
+        }
     }
 }
 </script>

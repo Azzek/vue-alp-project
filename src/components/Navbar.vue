@@ -1,7 +1,7 @@
 <!-- -->
 <template>
     <nav class="navbar navbar-expand"  
-    :class="[`bg-${navTheme}`, `navbar-${navTheme}`]" 
+    :class="[`bg-${theme}`, `navbar-${theme}`]" 
         >
         <div class="container-fluid">
             <a class="navbar-brand" href="#">ALP</a>
@@ -26,9 +26,9 @@
                     <li><a class="dropdown-item" href="https://nbp-pl.translate.goog/statystyka-i-sprawozdawczosc/kursy/tabela-a/?_x_tr_sl=pl&_x_tr_tl=en&_x_tr_hl=pl">Rate of exchange</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><button
-                       @click="navTheme == 'light' ? navTheme = 'dark' : navTheme = 'light' "
+                       @click="changeTheme(); storeThemeSetting();"
                         class="btn"
-                        >{{ `${navTheme == 'light' ? 'dark' : 'light'} Mode` }}</button></li>
+                        >{{ `${theme == 'light' ? 'dark' : 'light'} Mode` }}</button></li>
                     </ul>
                     </li>
             </ul>
@@ -78,18 +78,30 @@ export default {
         props: ['pages', 'activePage','navLinkClick'],
         data() {
             return{
-                navTheme:'dark'
+                theme: 'dark'
             }
         },
         methods: {
+            changeTheme() {
+                let theme = 'dark';
+
+                if (this.theme  ==  'dark')  {
+                    theme  =  'light'
+                }
+
+                this.theme = theme;
+                this.storeThemeSetting();
+            }, 
+            
             storeThemeSetting() {
-            localStorage.setItem('theme', this.theme);
+                localStorage.setItem('theme', this.theme);
             },
             getThemeSetting() {
-                let theme = localStorage.setItem('theme', this.theme);
+                let theme = localStorage.getItem('theme');
                 if (theme) {
                     this.theme = theme;
                 }
+                return this.theme
             }
         },
         

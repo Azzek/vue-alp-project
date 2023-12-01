@@ -3,7 +3,7 @@
         <div>
             <section id="home" class="py-5">
             <div class="container" >
-                <div class="row d-flex align-content-center justify-content-center">
+                <div class="row d-flex align-content-center justify-content-between">
                 <div class="col-md-6">
                     <h1 class="display-4">Witaj w ALP Polska</h1>
                     <p class="lead">
@@ -36,7 +36,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        
+        justify-content: space-between;
     }
     #home-container {
         background-color: whitesmoke;
